@@ -2,6 +2,7 @@ import { prisma } from '@/lib/prisma';
 import { MedicineTable } from '@/components/inventory/medicine-table';
 import { PageHeader } from '@/components/layout/page-header';
 import { Button } from '@/components/ui/button';
+import { ImportButton } from '@/components/inventory/import-button';
 import Link from 'next/link';
 import { Plus } from 'lucide-react';
 
@@ -43,11 +44,14 @@ export default async function InventoryPage() {
         title="Inventory Management"
         description={`${medicines.length} medicines in catalog`}
         action={
-          <Link href="/inventory/add">
-            <Button>
-              <Plus className="mr-2 h-4 w-4" /> Add Medicine
-            </Button>
-          </Link>
+          <div className="flex gap-2">
+            <ImportButton />
+            <Link href="/inventory/add">
+              <Button>
+                <Plus className="mr-2 h-4 w-4" /> Add Medicine
+              </Button>
+            </Link>
+          </div>
         }
       />
       <MedicineTable medicines={medicinesWithStock} />
