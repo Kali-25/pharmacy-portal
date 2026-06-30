@@ -1,0 +1,9 @@
+node_modules
+.next
+.env
+.env*.local
+!.env.example
+*.db
+prisma/dev.db*
+prisma/migrations/dev
+next-env.d.ts
